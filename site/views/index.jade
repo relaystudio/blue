@@ -1,13 +1,23 @@
 extends layout
 
 block header
-	h1 Header
-
-block about
-	h1 about section
+	.header
+		figure
 
 block current
-	h1 Current
+	.updates
+		.content
+			.title
+				h2 What we're up to
+			.post
+				p lorem ipsum set dolor
+		.video
+			video#current(autoplay="yes", muted="yes", loop="loop")
+				source(src="mov/test.mp4")
+				source(src="mov/test.ogv", type="video/ogg")
+				img#current(src="img/test.jpg")
+
+block about
 
 block team
 	h1 team

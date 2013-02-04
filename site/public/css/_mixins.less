@@ -1,20 +1,35 @@
-/******************************************************************
-Site Name: 
-Author: 
+// MIXINSSSSSS
 
-Stylesheet: Mixins & Constants Stylesheet
+.flexAspect(@height, @slope) {
+	  width: 100%;
+	  padding-top: @slope;  /* slope */
+	  height: @height;  /* start height */
 
-This is where you can take advantage of LESS' great features: 
-Mixins & Constants. I won't go in-depth on how they work exactly,
-there are a few articles below that will help do that. What I will
-tell you is that this will help speed up simple changes like
-changing a color or adding CSS3 techniques like box shadow and
-border-radius.
+	  background-image: url('../img/headerbg.jpg');
+	  background-size: cover;
+	  -moz-background-size: cover;  /* Firefox 3.6 */
+	  background-position: center;  
+}
 
-A WORD OF WARNING: It's very easy to overdo it here. Be careful and
-remember less is more. 
+.flexVideo(@height) {
+	position: relative;
+	width:100%;
+	height: @height !important;
+	overflow-y: hidden;
+	video {
+		width:100%;
+		height: auto !important;
+		}
+}
 
-******************************************************************/
+.circle(@radius, @color) {
+ background-color: @color;
+ border: none;
+ height: 150px;
+ -moz-border-radius:75px;
+ -webkit-border-radius: 75px;
+ width: 150px;
+}
 
 /*********************
 CLEARFIXIN'
@@ -50,6 +65,9 @@ COLORS
 Need help w/ choosing your colors? Try this site out:
 http://0to255.com/
 *********************/
+
+@headerColor:		#ed4324;
+@bgColor:			#fff;
 
 @alert-yellow:      #ebe16f;
 @alert-red:         #fbe3e4;

@@ -15,7 +15,7 @@ body {
 *********************/
 
 .wrap {
-	width: 96%;
+	width: 100%;
 	margin: 0 auto;
 }
 
@@ -48,7 +48,7 @@ a, a:visited {
 }
 
 /******************************************************************
-05. H1, H2, H3, H4, H5 STYLES
+	H1, H2, H3, H4, H5 STYLES
 ******************************************************************/
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
@@ -94,13 +94,18 @@ h5, .h5 {
 }
 
 /*********************
-06. HEADER SYTLES
+	HEADER SYTLES
 *********************/
 
 .header {
 	#inner-header {}
 
 	#logo {}
+
+
+	figure {
+		  .flexAspect(300px,10%) 
+	}
 
 	nav {
 		ul.nav {
@@ -115,10 +120,96 @@ h5, .h5 {
 	}
 }
 
+/********************* 
+ What we're doing now
+*********************/
+
+.updates {
+	position: relative;
+	height: 500px;
+
+	.video {
+		.flexVideo(500px)
+	}
+
+	.content {
+		position: absolute; left: 0; top: 0;
+		z-index: 1;
+		padding: 1em; margin: 0;
+
+		.title {
+			z-index: 1; // above video
+			width: 100%;
+
+			h2 {
+				color: @headerColor;
+				font-weight: 800;
+			}
+		}
+	}
+
+	nav {
+		ul.nav {
+			li {
+				a {}
+
+				&:first-child {}
+
+				&:last-child {}
+			}
+		}
+	}
+}
+
+
 /*********************
 	NAVIGATION STYLES
 *********************/
-]
+
+
+.team {
+	position: relative;
+	height: 500px;
+
+	.video {
+		.flexVideo(500px)
+	}
+
+	.content {
+		position: absolute; left: 0; top: 0;
+		z-index: 1;
+		padding: 1em; margin: 0;
+
+		.title {
+			z-index: 1; // above video
+			width: 100%;
+
+			h2 {
+				color: @headerColor;
+				font-weight: 800;
+			}
+		}
+	}
+
+	nav {
+		ul.nav {
+			li {
+				a {}
+
+				&:first-child {}
+
+				&:last-child {}
+			}
+		}
+	}
+}
+
+
+
+/*********************
+	NAVIGATION STYLES
+*********************/
+
 
 .nav {
 	border: 1px solid #ccc;
