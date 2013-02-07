@@ -104,7 +104,7 @@ h5, .h5 {
 
 
 	figure {
-		  .flexAspect(300px,10%) 
+		  .flexAspect(300px,10%,'/img/headerbg.jpg') 
 	}
 
 	nav {
@@ -135,16 +135,67 @@ h5, .h5 {
 	.content {
 		position: absolute; left: 0; top: 0;
 		z-index: 1;
+		width: 100%;
 		padding: 1em; margin: 0;
 
 		.title {
 			z-index: 1; // above video
-			width: 100%;
 
 			h2 {
 				color: @headerColor;
 				font-weight: 800;
 			}
+		}
+
+		.post {
+			background-color: rgba( 255,255,255,.5);
+			color: @white;
+		}
+	}
+
+	nav {
+		ul.nav {
+			li {
+				a {}
+
+				&:first-child {}
+
+				&:last-child {}
+			}
+		}
+	}
+}
+
+/********************* 
+ What we're doing now
+*********************/
+
+.posts {
+	position: relative;
+	height: 500px;
+
+	.video {
+		.flexVideo(500px)
+	}
+
+	.content {
+		position: absolute; left: 0; top: 0;
+		z-index: 1;
+		width: 100%;
+		padding: 1em; margin: 0;
+
+		.title {
+			z-index: 1; // above video
+
+			h2 {
+				color: @headerColor;
+				font-weight: 800;
+			}
+		}
+
+		.post {
+			background-color: rgba( 255,255,255,.5);
+			color: @white;
 		}
 	}
 
@@ -162,8 +213,9 @@ h5, .h5 {
 }
 
 
+
 /*********************
-	NAVIGATION STYLES
+	Team STYLES
 *********************/
 
 
@@ -189,6 +241,11 @@ h5, .h5 {
 				font-weight: 800;
 			}
 		}
+
+		.post {
+			background-color: rgba( 255,255,255,.5);
+			color: @white;
+		}
 	}
 
 	nav {
@@ -212,17 +269,24 @@ h5, .h5 {
 
 
 .nav {
-	border: 1px solid #ccc;
-	border-bottom: 0;
+	.clearfix;
+	position: relative; top: 0; left: 0;
+	width: 100%; 
+	background-color: #eee;
+
+	ul {
+		margin: 0;
+	}
 
 	li {
-
+		padding: 0; margin: 0;
 		a {
 			display: block;
 			text-decoration: none;
 			padding: 10px 10px;
 			background-color: #eee;
 			border-bottom: 1px solid #ccc;
+			font-weight: 800;
 
 			/*
 			remember this is for mobile ONLY, so there's no need
@@ -233,6 +297,12 @@ h5, .h5 {
 			&:hover, &:focus {
 
 			}
+
+			
+		}
+
+		&.active {
+			background-color: #dedede;
 		}
 
 		&:first-child {}
@@ -318,3 +388,54 @@ h5, .h5 {
 
 	.copyright {}
 
+
+/*********************
+	POST/WEEk STYLES
+*********************/
+
+.post {
+	.mobilePad;
+	.tags {
+		a {
+			background: @link-color;
+			color: @white;
+			text-decoration: none;
+			padding: 0 15px 0 15px;
+			margin: 2px;
+			 .border-radius(4px);
+
+			&:first-child {
+				margin: 2px 2px 0;
+			}
+
+	 		&:hover {
+			.boxShadow(0,0,4px,0,#444);
+			}
+		}
+	}
+
+
+	
+}
+
+	/*
+	if you checked out the link above:
+	http://www.alistapart.com/articles/organizing-mobile/
+	you'll want to style the footer nav
+	a bit more in-depth. Remember to keep
+	it simple because you'll have to
+	override these styles for the desktop
+	view.
+	*/
+	.footer-links {
+
+		ul {
+
+			li {}
+
+		}
+
+	} /* end .footer-links */
+
+
+	.copyright {}

@@ -1,0 +1,9 @@
+mixin teamMember(person)
+	.profile
+		.img(src=person.img)
+		.header
+			span.name= person.name
+			span.title= person.title
+		.desc
+			p= person.desc
+		.links

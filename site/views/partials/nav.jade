@@ -1,0 +1,9 @@
+.header
+	figure
+.nav
+	- var items = [{ value: 'Home', path: '' },{ value: 'The Team', path: 'team' },{ value: 'Weekly Update', path: 'week' }];
+	ul
+		- items.forEach( function(item) {
+			- var isActive = (item.path === nav ? 'active' : '')
+			li(class=isActive): a(href='/' + item.path) #{item.value}
+		- })

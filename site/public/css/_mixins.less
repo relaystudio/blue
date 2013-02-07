@@ -1,11 +1,11 @@
 // MIXINSSSSSS
 
-.flexAspect(@height, @slope) {
+.flexAspect(@height, @slope, @url) {
 	  width: 100%;
 	  padding-top: @slope;  /* slope */
 	  height: @height;  /* start height */
 
-	  background-image: url('../img/headerbg.jpg');
+	  background-image: url(@url);
 	  background-size: cover;
 	  -moz-background-size: cover;  /* Firefox 3.6 */
 	  background-position: center;  
@@ -23,12 +23,18 @@
 }
 
 .circle(@radius, @color) {
- background-color: @color;
- border: none;
- height: 150px;
- -moz-border-radius:75px;
- -webkit-border-radius: 75px;
- width: 150px;
+	 background-color: @color;
+	 border: none;
+	 height: 150px;
+	 -moz-border-radius:75px;
+	 -webkit-border-radius: 75px;
+	 width: 150px;
+}
+
+.mobilePad {
+	@media only screen and (max-width: 481px) {
+		margin: 0 10px 0 10px;
+	}
 }
 
 /*********************
@@ -278,3 +284,61 @@ BUTTONS
 		.css-gradient( darken(@bones-blue, 5%), @bones-blue );
 	}
 }
+
+/*********************
+Folded corner
+*******************/
+.foldCorner {
+	.note {
+	   position:relative;
+	   width:30%;
+	   padding:1em 1.5em;
+	   margin:2em auto;
+	   color:#fff;
+	   background:#97C02F;
+	   overflow:hidden;
+	}
+
+	.note:before {
+	   content:"";
+	   position:absolute;
+	   top:0;
+	   right:0;
+	   border-width:0 16px 16px 0;
+	   border-style:solid;
+	   border-color:#fff #fff #658E15 #658E15;
+	   background:#658E15;
+	   -webkit-box-shadow:0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+	   -moz-box-shadow:0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+	   box-shadow:0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+	   display:block; width:0; /* Firefox 3.0 damage limitation */
+	}
+
+	.note.rounded {
+	   -webkit-border-radius:5px 0 5px 5px;
+	   -moz-border-radius:5px 0 5px 5px;
+	   border-radius:5px 0 5px 5px;
+	}
+
+	.note.rounded:before {
+	   border-width:8px;
+	   border-color:#fff #fff transparent transparent;
+	   -webkit-border-bottom-left-radius:5px;
+	   -moz-border-radius:0 0 0 5px;
+	   border-radius:0 0 0 5px;
+	}
+}
+
+/*******************
+Transition
+****************/
+//  .transition(all, 0.5s, ease-in);
+
+.transition (@prop: all, @time: 1s, @ease: linear) {
+    -webkit-transition: @prop @time @ease;
+    -moz-transition: @prop @time @ease;
+    -o-transition: @prop @time @ease;
+    -ms-transition: @prop @time @ease;
+    transition: @prop @time @ease;
+}
+

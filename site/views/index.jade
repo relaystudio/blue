@@ -1,8 +1,5 @@
 extends layout
 
-block header
-	.header
-		figure
 
 block current
 	.updates
@@ -10,17 +7,17 @@ block current
 			.title
 				h2 What we're up to
 			.post
-				p lorem ipsum set dolor
+				p Maecenas tristique sodales augue, eleifend rutrum justo pretium eu. In leo lectus, facilisis nec tincidun
 		.video
 			video#current(autoplay="yes", muted="yes", loop="loop")
 				source(src="mov/test.mp4")
 				source(src="mov/test.ogv", type="video/ogg")
 				img#current(src="img/test.jpg")
 
-block about
-
 block team
-	h1 team
+
+	.team
+
 
 block contact
 	h1 contact

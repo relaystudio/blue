@@ -491,6 +491,11 @@ dd {
 .commentlist {
   list-style: none;
 }
+@media only screen and (max-width: 481px) {
+  .mobilePad {
+    margin: 0 10px 0 10px;
+  }
+}
 /*********************
 CLEARFIXIN'
 *********************/
@@ -648,6 +653,11 @@ BUTTONS
   -ms-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+  -webkit-transition: all 1s linear;
+  -moz-transition: all 1s linear;
+  -o-transition: all 1s linear;
+  -ms-transition: all 1s linear;
+  transition: all 1s linear;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
@@ -717,6 +727,50 @@ BUTTONS
   background-image: -o-linear-gradient(top, #1681c4, #1990db);
   background-image: linear-gradient(to bottom, #1681c4, #1990db);
 }
+/*********************
+Folded corner
+*******************/
+.foldCorner .note {
+  position: relative;
+  width: 30%;
+  padding: 1em 1.5em;
+  margin: 2em auto;
+  color: #fff;
+  background: #97C02F;
+  overflow: hidden;
+}
+.foldCorner .note:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-width: 0 16px 16px 0;
+  border-style: solid;
+  border-color: #fff #fff #658E15 #658E15;
+  background: #658E15;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), -1px 1px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), -1px 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), -1px 1px 1px rgba(0, 0, 0, 0.2);
+  display: block;
+  width: 0;
+  /* Firefox 3.0 damage limitation */
+
+}
+.foldCorner .note.rounded {
+  -webkit-border-radius: 5px 0 5px 5px;
+  -moz-border-radius: 5px 0 5px 5px;
+  border-radius: 5px 0 5px 5px;
+}
+.foldCorner .note.rounded:before {
+  border-width: 8px;
+  border-color: #fff #fff transparent transparent;
+  -webkit-border-bottom-left-radius: 5px;
+  -moz-border-radius: 0 0 0 5px;
+  border-radius: 0 0 0 5px;
+}
+/*******************
+Transition
+****************/
 /*
 BASE (MOBILE) SIZE
 This are the mobile styles. It's what people see on their phones. If
@@ -842,7 +896,7 @@ h5,
   height: 300px;
   /* start height */
 
-  background-image: url('../img/headerbg.jpg');
+  background-image: url('/img/headerbg.jpg');
   background-size: cover;
   -moz-background-size: cover;
   /* Firefox 3.6 */
@@ -871,27 +925,122 @@ h5,
   left: 0;
   top: 0;
   z-index: 1;
+  width: 100%;
   padding: 1em;
   margin: 0;
 }
 .updates .content .title {
   z-index: 1;
-  width: 100%;
 }
 .updates .content .title h2 {
   color: #ed4324;
   font-weight: 800;
 }
+.updates .content .post {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #ffffff;
+}
+/********************* 
+ What we're doing now
+*********************/
+.posts {
+  position: relative;
+  height: 500px;
+}
+.posts .video {
+  position: relative;
+  width: 100%;
+  height: 500px !important;
+  overflow-y: hidden;
+}
+.posts .video video {
+  width: 100%;
+  height: auto !important;
+}
+.posts .content {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  padding: 1em;
+  margin: 0;
+}
+.posts .content .title {
+  z-index: 1;
+}
+.posts .content .title h2 {
+  color: #ed4324;
+  font-weight: 800;
+}
+.posts .content .post {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #ffffff;
+}
+/*********************
+	Team STYLES
+*********************/
+.team {
+  position: relative;
+  height: 500px;
+}
+.team .video {
+  position: relative;
+  width: 100%;
+  height: 500px !important;
+  overflow-y: hidden;
+}
+.team .video video {
+  width: 100%;
+  height: auto !important;
+}
+.team .content {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  padding: 1em;
+  margin: 0;
+}
+.team .content .title {
+  z-index: 1;
+  width: 100%;
+}
+.team .content .title h2 {
+  color: #ed4324;
+  font-weight: 800;
+}
+.team .content .post {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #ffffff;
+}
 /*********************
 	NAVIGATION STYLES
 *********************/
 .nav {
-  border: 1px solid #ccc;
-  border-bottom: 0;
+  zoom: 1;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #eee;
   /* end .menu li */
 
 }
+.nav:before,
+.nav:after {
+  content: "";
+  display: table;
+}
+.nav:after {
+  clear: both;
+}
+.nav ul {
+  margin: 0;
+}
 .nav li {
+  padding: 0;
+  margin: 0;
   /*
 		so you really have to rethink your dropdowns for mobile.
 		you don't want to have it expand too much because the
@@ -907,6 +1056,7 @@ h5,
   padding: 10px 10px;
   background-color: #eee;
   border-bottom: 1px solid #ccc;
+  font-weight: 800;
   /*
 			remember this is for mobile ONLY, so there's no need
 			to even declare hover styles here, you can do it in
@@ -914,6 +1064,9 @@ h5,
 			keep this file as small as possible!
 			*/
 
+}
+.nav li.active {
+  background-color: #dedede;
 }
 .nav li ul.sub-menu li a,
 .nav li ul.children li a {
@@ -925,6 +1078,42 @@ h5,
 *********************/
 .footer {
   clear: both;
+}
+/*
+	if you checked out the link above:
+	http://www.alistapart.com/articles/organizing-mobile/
+	you'll want to style the footer nav
+	a bit more in-depth. Remember to keep
+	it simple because you'll have to
+	override these styles for the desktop
+	view.
+	*/
+/* end .footer-links */
+/*********************
+	POST/WEEk STYLES
+*********************/
+@media only screen and (max-width: 481px) {
+  .post {
+    margin: 0 10px 0 10px;
+  }
+}
+.post .tags a {
+  background: #f01d4f;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0 15px 0 15px;
+  margin: 2px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.post .tags a:first-child {
+  margin: 2px 2px 0;
+}
+.post .tags a:hover {
+  -webkit-box-shadow: 0 0 4px 0 #444444;
+  -moz-box-shadow: 0 0 4px 0 #444444;
+  box-shadow: 0 0 4px 0 #444444;
 }
 /*
 	if you checked out the link above:
@@ -992,31 +1181,6 @@ tweeners.
   /*********************
   POSTS & CONTENT STYLES
   *********************/
-  /* entry content */
-  .entry-content {
-    /* at this larger size, we can start to align images */
-  
-  }
-  .entry-content .alignleft,
-  .entry-content img.alignleft {
-    margin-right: 1.5em;
-    display: inline;
-    float: left;
-  }
-  .entry-content .alignright,
-  .entry-content img.alignright {
-    margin-left: 1.5em;
-    display: inline;
-    float: right;
-  }
-  .entry-content .aligncenter,
-  .entry-content img.aligncenter {
-    margin-right: auto;
-    margin-left: auto;
-    display: block;
-    clear: both;
-  }
-  /* end .entry-content */
   /*********************
   FOOTER STYLES
   *********************/
@@ -1146,6 +1310,9 @@ you can add resource intensive styles.
   .wrap {
     max-width: 1140px;
   }
+  .updates .content {
+    width: 50%;
+  }
   /*********************
   HEADER SYTLES
   *********************/
@@ -1153,7 +1320,6 @@ you can add resource intensive styles.
   NAVIGATION STYLES
   *********************/
   .nav {
-    background: #eee;
     border: 0;
     /* end .menu ul li */
   
@@ -1163,6 +1329,7 @@ you can add resource intensive styles.
   
   }
   .nav li {
+    width: 15%;
     float: left;
     position: relative;
     /*

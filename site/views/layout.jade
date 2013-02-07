@@ -1,17 +1,20 @@
+include mixin
+
 doctype 5
 html
   head
     title= title
-    link(rel='stylesheet', type='text/css', href='css/style.css')
+    link(rel='stylesheet', type='text/css', href='/css/style.css')
     script(src='/js/jquery-1.9.0.min.js')
     script(src='/js/html5shiv.js')
     script(src='/js/base.js')
   body
     .wrap
-        block header
-        block nav
+        //partial('partials/nav', {nav:nav})
+        include partials/nav
+        block content
         block about
         block current
         block team
         block contact
-        block footer
+        include partials/footer
