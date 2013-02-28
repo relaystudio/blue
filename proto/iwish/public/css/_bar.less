@@ -1,0 +1,162 @@
+.basicBar {
+	height: 40px;
+	width: 100%;
+	background: rgb(238, 238, 238);
+}
+
+.bar {
+	.boxShadow(0,0,4px,0,#444);	
+	position: fixed;
+	bottom: 0; left: 0;
+	width: 100%;
+	height: 40px;
+	background: rgb(238, 238, 238);
+	overflow: hidden;
+	z-index:999;
+	
+
+	div.scrollableArea * {
+		position: relative;
+		display: block;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-o-user-select: none;
+		user-select: none;
+	}
+
+	.header {
+		position:absolute;
+		top: 0;
+		left: 100px;
+		text-align: right;
+		width: 960px;
+		height: 40px;
+		color: @white;
+		padding-top: 10px;
+		background: transparent url( '/img/tab.png' ) top right no-repeat;
+
+		.fb {
+			float: right;
+			clear: none;
+			width: 60%;
+			height: 40px;
+			margin-right: 40px;
+		}
+	}
+
+	.lists {
+		float: left; clear: none;
+		height: 120px;
+		width: 120px;
+		margin: 10px;
+		//.boxShadow(0,0,4px,0,#444);	
+
+		position:relative;
+
+		h1 {
+			font-size: 14px;
+			position: absolute;
+			z-index: 99;
+			background-color: white;
+		}	
+
+		.inList {
+			.boxShadow(0,0,6px,0,#444);	
+			position: absolute;
+			top: 0; left: 0;
+			margin: 5px;
+			height: 100px;
+			width: 100px;
+		}
+		
+	}
+
+	.content {
+		margin: 5px;
+		width: 100%;
+
+		.dropSpot {
+		    position: relative;
+			left: 85px;
+			top: 45px;
+			height: 140px;
+			width: 810px;
+			height: 160px;
+			overflow: hidden;	
+			clear: none;
+		}
+
+		.cart {
+			position: absolute;
+			top: 45px;
+			left: 944px;
+			height: 160px;
+			//.boxShadow(0,0,4px,0,#444);	
+			margin: 0; padding: 0; border: 0;
+
+			.lists {
+				border: 0!important;
+				padding: 0;
+				margin: 0;
+			}
+		}
+
+	}
+
+	.barExtended {
+		height: 200px;
+		background: '#efefef';
+	}
+
+}
+
+.dragItem {
+	//width: 100px; height: 100px;
+	.boxShadow(4,4,4px,0,#444);	
+	//background: rgb(238, 238, 238);
+	z-index: 99;
+	list-style: none;
+	//display: none;
+
+
+	.overDrop {
+		.boxShadow(4,4,4px,0,#ff0000);	
+	}
+
+}
+
+
+.ui-draggable-dragging {
+	z-index:99999;
+}
+
+.ticker {
+	position: absolute;
+	left: 385px;
+	top: 150+45px;
+	width: 960px;
+	overflow:hidden;
+
+	p {
+		white-space: nowrap;
+		float: left;
+		clear: none;
+		margin: 10px 10px 0 1px;
+	}
+
+}
+
+.myItem {
+	width: 100px; height: 100px;
+	border: 2px solid #ccc;	
+	background: @white;
+	.border-radius(4px);
+}
+
+.myLists {
+	width: 170px; height: 170px;
+	border: 2px solid #ccc;	
+	background: @white;
+	.border-radius(4px);
+}

@@ -1,0 +1,27 @@
+extends layout
+
+block content
+	ul.gallery
+	-for(var i=0;i<8;i++)
+		- var row = Math.floor(i/3) * 210 + 493;
+		- var col = (i%3) * 210 + 130;
+		- var position = 'position: absolute; top: ' + row + 'px; left: ' + col + 'px';
+		.dragItem.myLists(style=position) <a href="/heather/list">My List Name</a>
+
+	img(src="/img/lists.png")
+
+
+block bar
+	.bar
+		.header
+			.fb
+				img(src='/img/reisman_heather.jpg', style="height: 25px; margin-right: 20px")
+				| Hi <a href="/heather">Heather</a>, drag an item to save it!
+		.content
+			.dropSpot.scroll
+				-for(var i=0;i<9;i++)
+					.lists
+						a(href='/heather/list') Name of the List
+			.cart
+				.lists
+					img(src='/img/cart.png')
