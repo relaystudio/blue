@@ -1,9 +1,9 @@
-var barHeight, visibleBar, visibleExtend, gridster, dragging;
+var barHeight, visibleBar, visibleExtend, gridster, dragging,personAdded,dateAdded;
 
 $(document).ready( function() {
 	visibleExtend = true;
 	barHeight = $('.bar').height() - $('.bar > .header').height();
-
+    $('input').inputfit();
 	dragging = false;
 
 	$(window).scroll( function(e) {
@@ -41,13 +41,20 @@ function init() {
 	barSlideDown(); // Slides the bar down to give a cue to the user about its role/presence.
 	$('.overlay').hide();
 
-	$('#personNameField').change(function() {
+	$('#personNameField').on('change keypress paste focus textInput input',function() {
 		var theInput = $(this).val();
-		console.log(theInput.length)
 		if( theInput.length > 4) {
 			completeName();
 		}
 	});
+
+	$('#occasionNameField').on('change keypress paste focus textInput input',function() {
+		var theInput = $(this).val();
+		if( theInput.length > 4) {
+			completeDate();
+		}
+	});
+
 	initTicker();
 
 	$('img').attr('draggable', false);
@@ -253,9 +260,21 @@ function initTicker() {
 
 
 function completeName() {
-	var momImg = '<img class="flex" src="/img/momImg.png" style="float:left;clear:none;width:40px;height:40px">';
-	$('#personNameField').before(momImg).width('40%').val('Maureen Lovett')
+	if(!personAdded) {
+		var momImg = '<img class="flex" src="/img/momImg.png" style="float:left;clear:none;width:40px;height:40px">';
+		$('#personNameField').before(momImg).animate({width: '35%'}).val('Maureen Lovett').blur().inputfit();
+	}
+	personAdded = true;
 }
+
+function completeDate() {
+	if(!dateAdded) {
+		var bdayImg = '<img class="flex" src="/img/momImg.png" style="float:left;clear:none;width:40px;height:40px">';
+		$('#occasionNameField').before(bdayImg).animate({width: '35%'}).val('May 12,2013').blur().inputfit();
+	}
+	dateAdded = true;
+}
+
 
 
 
