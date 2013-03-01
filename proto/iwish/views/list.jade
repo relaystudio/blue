@@ -1,12 +1,24 @@
 extends layout
 
 block content
-	ul.gallery
-	-for(var i=0;i<30;i++)
+	-for(var i=0;i<18;i++)
 		- var row = Math.floor(i/5) * 120 + 483;
 		- var col = (i%5) * 120 + 130;
 		- var position = 'position: absolute; top: ' + row + 'px; left: ' + col + 'px';
-		.dragItem.myItem(style=position) Item
+		- var imgpath = '/img/items/' + i + '.jpg'
+		.dragItem.myItem(style=position) 
+			img.flex(src=imgpath)
+		.myItem(style=position) 
+			img.flex(src=imgpath)
+	-for(var i=0;i<4;i++)
+		- var row = Math.floor(i/5) * 70 + 850;
+		- var col = (i%5) * 70 + 850;
+		- var position = 'position: absolute; top: ' + row + 'px; left: ' + col + 'px';
+		- var imgpath = '/img/items/' + i + '.jpg'
+		.dragItem.notificationItem(style=position) 
+			img.flex(src=imgpath)
+		.notificationItem(style=position) 
+			img.flex(src=imgpath)
 
 	img(src="/img/list.png")
 
@@ -18,9 +30,9 @@ block bar
 				| Hi <a href="/heather">Heather</a>, drag an item to save it!
 		.content
 			.dropSpot.scroll
+				-var listNames = ['Christmas', 'Running gear', 'For Christine', 'Webdev stuff', 'XKCD only', 'Toronto', 'Other stuff','iPhone','Cooking books']
 				-for(var i=0;i<9;i++)
 					.lists
-						a(href='/heather/list') Name of the List
+						a(href='/heather/list')= listNames[i]
 			.cart
 				.lists
-					img(src='/img/cart.png')

@@ -33,9 +33,9 @@ block bar
 				| Hi <a href="/heather">Heather</a>, drag an item to save it!
 		.content
 			.dropSpot.scroll
+				-var listNames = ['Christmas', 'Running gear', 'For Christine', 'Webdev stuff', 'XKCD only', 'Toronto', 'Other stuff','iPhone','Cooking books']
 				-for(var i=0;i<9;i++)
 					.lists
-						a(href='/heather/list') Name of the List
+						a(href='/heather/list')= listNames[i]
 			.cart
 				.lists
-					img(src='/img/cart.png')

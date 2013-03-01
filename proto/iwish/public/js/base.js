@@ -20,13 +20,16 @@ $(document).ready( function() {
 		barSlideDown();
 	});
 
+	$('#generateNewList').click(function() {
+		addNewList();
+	});
 	// Setup click behaviour
-	$('.bar').click( function(){
+/*	$('.bar').click( function(){
 		console.log("Clicked")
 		visibleExtend = !visibleExtend;
 		if(!visibleExtend) listSlideUp();
 		//else listSlideUp();
-	});
+	}); */
 
 	init();
     
@@ -36,8 +39,18 @@ $(document).ready( function() {
 function init() {
 	console.log("Initializing");
 	barSlideDown(); // Slides the bar down to give a cue to the user about its role/presence.
+	$('.overlay').hide();
 
+	$('#personNameField').change(function() {
+		var theInput = $(this).val();
+		console.log(theInput.length)
+		if( theInput.length > 4) {
+			completeName();
+		}
+	});
 	initTicker();
+
+	$('img').attr('draggable', false);
 
 	$('.scroll').smoothDivScroll({
 			mousewheelScrolling: "allDirections",
@@ -63,19 +76,18 @@ function init() {
       	cursor: "move"
 	});
 
-	$( ".lists" ).each( function(list) {
+	$( ".lists:not(.newList)" ).each( function(list) {
 
-		var target = this;
-		console.log(target)
-
+		var target = this;		
 		$(this).droppable({
 	      activeClass: "ui-state-hover",
 	      hoverClass: "ui-state-active",
 	      drop: function( event, ui ) {
+	      	//$('.makeNewList').show();
 	      	dragging = false;
+		  	$(this).clone().next('div').animate({opacity:.25},1000);
 		  	deleteImage( ui.draggable, target );
 	      	barSlideUp();
-			listSlideDown();
 	        // $( this )
 	        //   .addClass( "ui-state-highlight" )
 	        //   .find( "p" )
@@ -85,6 +97,27 @@ function init() {
 
 	});
 
+	$('.newList').on('click', function() {
+    	dragging = false;
+		$('.makeNewList').show();
+		barSlideUp();
+    }).droppable({
+      activeClass: "ui-state-hover",
+      hoverClass: "ui-state-active",
+      drop: function( event, ui ) {
+      	$('.makeNewList').show();
+      	dragging = false;
+	  	///$(this).clone().next('div').animate({opacity:.25},1000);
+	  	//deleteImage( ui.draggable, target );
+      	barSlideUp();
+        // $( this )
+        //   .addClass( "ui-state-highlight" )
+        //   .find( "p" )
+        //     .html( "Dropped!" );
+      }
+    });
+
+
 //////////
 
  var $gallery = $( ".gallery" );
@@ -92,13 +125,15 @@ function init() {
 
 var recycle_icon = "<a href='#' title='item' class='ui-icon ui-icon-refresh'></a>";
 function deleteImage( $item, $lists ) {
-  $item.animate({ opacity:.25},1000,function() {
+  $item.animate({ opacity:.25},500,function() {
     var $target = $( $lists ).length ?
       $( $lists ) :
       $( $gallery ).appendTo( $lists );
 
     //$item.find( "a.ui-icon-trash" ).remove();
+
     $item.append( recycle_icon ).appendTo( $target ).fadeIn(function() {
+      //$(item).next('.myItem').animate({ opacity: 25}, 1000);
       $item
 	    .removeAttr('style')
       	.addClass('inList')
@@ -139,7 +174,7 @@ function barSlideUp() {
 	if(!dragging) {
 		$('.bar').animate({
 
-			height: '220px'
+			height: '200px'
 
 		}, 500, function(err) {
 
@@ -217,11 +252,24 @@ function initTicker() {
 }
 
 
-
-//////////
-//////////
-//////////
-//////////
-//////////
+function completeName() {
+	var momImg = '<img class="flex" src="/img/momImg.png" style="float:left;clear:none;width:40px;height:40px">';
+	$('#personNameField').before(momImg).width('40%').val('Maureen Lovett')
+}
 
 
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+function addNewList() {
+	barSlideUp();
+	var listName = $('#listNameField').val();
+	var forPerson = $('#personNameField').val();
+	var listTemplate = '<div class="lists"><a href="/proto/2">' + listName + '</a></div>';
+	$('.makeNewList').fadeOut(400);
+	$('.newList').after(listTemplate);
+}

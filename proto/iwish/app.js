@@ -31,6 +31,11 @@ app.get('/', function(req, res) {
   res.render('index', { title: 'Express' });
 });
 
+app.get('/proto/:index', function(req, res) {
+  res.render( req.params.index + '.jade', { title: 'Express' });
+});
+
+
 app.get('/heather', function(req, res) {
   res.render('lists', { title: 'Express' });
 })

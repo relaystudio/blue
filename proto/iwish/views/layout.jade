@@ -17,5 +17,12 @@ html
 		script(src='/js/base.js')
 	body
 		.wrap
+			.headUp
 			block content
 			block bar
+		.makeNewList.overlay
+			label What should this list be called?
+			input#listNameField()
+			input.short#personNameField(placeholder='For someone?')
+			input.short#occasionNameField(placeholder='For an occasion?')
+			button#generateNewList Create

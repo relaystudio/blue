@@ -837,7 +837,7 @@ h4,
 .h4,
 h5,
 .h5 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Gibson Light', 'Helvetica', 'Arial', sans-serif;
   text-rendering: optimizelegibility;
   font-weight: 400;
   /*
@@ -1127,23 +1127,30 @@ h5,
 	view.
 	*/
 /* end .footer-links */
+img {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
 .basicBar {
   height: 40px;
   width: 100%;
   background: #eeeeee;
 }
 .bar {
-  -webkit-box-shadow: 0 0 4px 0 #444444;
-  -moz-box-shadow: 0 0 4px 0 #444444;
-  box-shadow: 0 0 4px 0 #444444;
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 40px;
-  background: #eeeeee;
+  background: transparent url('/img/bar.png') top left no-repeat;
   overflow: hidden;
   z-index: 999;
+}
+.bar a {
+  color: #33305e;
 }
 .bar div.scrollableArea * {
   position: relative;
@@ -1163,20 +1170,24 @@ h5,
   height: 40px;
   color: #ffffff;
   padding-top: 10px;
-  background: transparent url('/img/tab.png') top right no-repeat;
+  background: transparent;
 }
 .bar .header .fb {
   float: right;
   clear: none;
   width: 60%;
   height: 40px;
-  margin-right: 40px;
+  margin-right: 120px;
+}
+.bar .header .fb a {
+  color: #ffffff;
+  font-weight: 400;
 }
 .bar .lists {
   float: left;
   clear: none;
   height: 120px;
-  width: 120px;
+  width: 100px;
   margin: 10px;
   position: relative;
 }
@@ -1197,6 +1208,11 @@ h5,
   height: 100px;
   width: 100px;
 }
+.bar .lists a {
+  position: absolute;
+  top: 100px;
+  left: 0;
+}
 .bar .content {
   margin: 5px;
   width: 100%;
@@ -1210,6 +1226,9 @@ h5,
   height: 160px;
   overflow: hidden;
   clear: none;
+}
+.bar .content .dropSpot .lists {
+  background: transparent url('/img/barlist.png') top left no-repeat;
 }
 .bar .content .cart {
   position: absolute;
@@ -1234,7 +1253,6 @@ h5,
   -moz-box-shadow: 4 4 4px 0 #444444;
   box-shadow: 4 4 4px 0 #444444;
   z-index: 99;
-  list-style: none;
 }
 .dragItem .overDrop {
   -webkit-box-shadow: 4 4 4px 0 #ff0000;
@@ -1274,6 +1292,85 @@ h5,
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
+}
+.notificationItem {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ccc;
+  background: #ffffff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+img.flex {
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+}
+.overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -150px;
+  /* negative half the size of height */
+
+  margin-left: -200px;
+  /* negative half the size of width */
+
+  padding: 20px;
+  width: 400px;
+  height: 300px;
+  z-index: 99999;
+  background: #ffffff;
+  border: #e9e9e9;
+  -webkit-box-shadow: 0 0 8px 0 #444444;
+  -moz-box-shadow: 0 0 8px 0 #444444;
+  box-shadow: 0 0 8px 0 #444444;
+}
+.overlay input,
+.overlay button {
+  margin: 0 auto;
+  margin-top: 10px;
+  border: 1px solid #cccccc;
+  padding: 8px;
+  display: block;
+  color: #333333;
+  font-family: 'Gibson Light', 'Helvetica', 'Arial', sans-serif;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: normal;
+  text-transform: none;
+  clear: both;
+  width: 90%;
+}
+.overlay input.short,
+.overlay button.short {
+  clear: none;
+  border: none;
+  border-bottom: 1px solid #cccccc;
+  width: 44%;
+  margin-right: 1%;
+  float: left;
+}
+.overlay input.short:first-child,
+.overlay button.short:first-child {
+  margin-left: 5%;
+}
+.overlay label {
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 8px;
+  display: block;
+  color: #333333;
+  font-family: 'Gibson Light', 'Helvetica', 'Arial', sans-serif;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: normal;
+  text-transform: none;
+}
+.overlay button {
+  width: 100px;
+  float: right;
 }
 /*
 LARGER MOBILE DEVICES
@@ -1454,9 +1551,6 @@ you can add resource intensive styles.
   /*********************
   GENERAL STYLES
   *********************/
-  body {
-    background: transparent url('/img/repeat.png') top left;
-  }
   /*********************
   LAYOUT & GRID STYLES
   *********************/

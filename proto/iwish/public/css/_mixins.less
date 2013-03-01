@@ -100,7 +100,7 @@ http://sachagreif.com/sass-color-variables/
 TYPOGRAPHY
 *********************/
 
-@sans-serif:         "Helvetica Neue", Helvetica, Arial, sans-serif; 
+@sans-serif:         'Gibson Light', 'Helvetica', 'Arial', sans-serif; //"Helvetica Neue", Helvetica, Arial, sans-serif; 
 @serif:              "Georgia", Cambria, Times New Roman, Times, serif; 
 
 
@@ -327,6 +327,21 @@ Folded corner
 	   -moz-border-radius:0 0 0 5px;
 	   border-radius:0 0 0 5px;
 	}
+}
+
+
+
+
+.overlay(@width: 400px, @height: 300px) {
+	position:fixed;
+	top:50%;
+    left:50%;
+    margin-top:-@height/2; /* negative half the size of height */
+    margin-left:-@width/2; /* negative half the size of width */
+	padding: 20px;
+	width:@width; height: @height;
+	z-index:99999;
+	background: @white;
 }
 
 /*******************
