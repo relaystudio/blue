@@ -1,0 +1,42 @@
+extends layout
+
+block content
+	-for(var i=0;i<8;i++)
+		- var row = Math.floor(i/3) * 210 + 493;
+		- var col = (i%3) * 210 + 130;
+		- var position = 'position: absolute; top: ' + row + 'px; left: ' + col + 'px';
+		.myLists(style=position)
+			- var imgpath = '/img/items/' + i + '.jpg'
+			img.flex(src=imgpath)
+			<a href="/heather/list" style="clear: both">My List Name</a>
+	-for(var i=0;i<4;i++)
+		- var row = Math.floor(i/5) * 70 + 850;
+		- var col = (i%5) * 70 + 850;
+		- var position = 'position: absolute; top: ' + row + 'px; left: ' + col + 'px';
+		- var imgpath = '/img/items/' + i + '.jpg'
+		.dragItem.notificationItem(style=position) 
+			img.flex(src=imgpath)
+		.notificationItem(style=position) 
+			img.flex(src=imgpath)
+
+	img(src="/img/lists.png")
+
+
+block bar
+	.bar
+		.header
+			.fb
+				img(src='/img/reisman_heather.jpg', style="height: 25px; margin-right: 20px")
+				| Hi <a href="/heather">Heather</a>, drag an item to save it!
+		.content
+			.dropSpot.scroll
+				.lists.newList
+					img(src='/img/newlist.png')
+				.lists
+					a(href='/proto/3') Mother's day
+				-var listNames = ['John\'s Bday', 'Running gear', 'New den', 'Webdev stuff', 'XKCD only', 'Toronto', 'Other stuff','iPhone','Cooking books']
+				-for(var i=0;i<3;i++)
+					.lists
+						a(href='/heather/list')= listNames[i]
+			.cart
+				.lists

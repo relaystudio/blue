@@ -1,0 +1,43 @@
+extends layout
+
+block content
+	li.dragItem(style='position:absolute; top: 893px; left: 146px')
+		img(src="/img/hero1.png")
+	li.dragItem(style='position:absolute; top: 893px; left: 671px')
+		img(src="/img/book1.png")
+	li.dragItem(style='position:absolute; top: 893px; left: 858px')
+		img(src="/img/book2.png")
+	li.dragItem(style='position:absolute; top: 1106px; left: 858px')
+		img(src="/img/book3.png")
+	li.dragItem(style='position:absolute; top: 1104px; left: 675px')
+		img(src="/img/book4.png")
+	// Items
+	li.dragItem(style='position:absolute; top: 1393px; left: 146px')
+		img(src="/img/hero2.png")
+	li.dragItem(style='position:absolute; top: 1393px; left: 671px')
+		img(src="/img/item3.png")
+	li.dragItem(style='position:absolute; top: 1393px; left: 858px')
+		img(src="/img/item4.png")
+	li.dragItem(style='position:absolute; top: 1606px; left: 858px')
+		img(src="/img/item1.png")
+	li.dragItem(style='position:absolute; top: 1604px; left: 675px')
+		img(src="/img/item2.png")
+
+	img(src="/img/home.png")
+
+block bar
+	.bar
+		.header
+			.fb
+				img(src='/img/reisman_heather.jpg', style="height: 25px; margin-right: 20px")
+				| Hi <a href="/heather">Heather</a>, drag an item to save it!
+		.content
+			.dropSpot.scroll
+				.lists.newList
+					img(src='/img/newlist.png')
+				-var listNames = ['Christmas', 'Running gear', 'For Christine', 'Webdev stuff', 'XKCD only', 'Toronto', 'Other stuff','iPhone','Cooking books']
+				-for(var i=0;i<9;i++)
+					.lists
+						a(href='/heather/list')= listNames[i]
+			.cart
+				.lists
