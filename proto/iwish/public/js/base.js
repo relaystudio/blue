@@ -25,13 +25,6 @@ $(document).ready( function() {
 	$('#generateNewList').click(function() {
 		addNewList();
 	});
-	// Setup click behaviour
-/*	$('.bar').click( function(){
-		console.log("Clicked")
-		visibleExtend = !visibleExtend;
-		if(!visibleExtend) listSlideUp();
-		//else listSlideUp();
-	}); */
 
 	init();
     
@@ -293,4 +286,10 @@ function addNewList() {
 	var listTemplate = '<div class="lists"><a href="/proto/2">' + listName + '</a></div>';
 	$('.makeNewList').fadeOut(400);
 	$('.newList').after(listTemplate);
+}
+
+function overlayTemplate(item) {
+	var $item = $(item);
+	
+	
 }
