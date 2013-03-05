@@ -30,14 +30,14 @@ block bar
 		.header
 			.fb
 				img(src='/img/reisman_heather.jpg', style="height: 25px; margin-right: 20px")
-				| Hi <a href="/heather">Heather</a>, drag an item to save it!
+				| Hi <a href="/proto/2">Heather</a>, drag an item to save it!
 		.content
 			.dropSpot.scroll
 				.lists.newList
 					img(src='/img/newlist.png')
-				-var listNames = ['Christmas', 'Running gear', 'For Christine', 'Webdev stuff', 'XKCD only', 'Toronto', 'Other stuff','iPhone','Cooking books']
-				-for(var i=0;i<9;i++)
+				-var listNames = ['John\'s Bday', 'Running gear', 'New den', 'Webdev stuff', 'XKCD only', 'Toronto', 'Other stuff','iPhone','Cooking books']
+				-for(var i=0;i<3;i++)
 					.lists
-						a(href='/heather/list')= listNames[i]
+						a(href='/proto/2')= listNames[i]
 			.cart
 				.lists

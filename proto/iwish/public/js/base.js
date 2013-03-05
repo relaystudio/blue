@@ -6,6 +6,8 @@ $(document).ready( function() {
     $('input').inputfit();
 	dragging = false;
 
+	$('.lists')
+
 	$(window).scroll( function(e) {
 		if(dragging) e.preventDefault();
 		else return true;
@@ -181,7 +183,7 @@ function barSlideUp() {
 	if(!dragging) {
 		$('.bar').animate({
 
-			height: '200px'
+			height: '190px'
 
 		}, 500, function(err) {
 

@@ -1140,6 +1140,7 @@ img {
   background: #eeeeee;
 }
 .bar {
+  font-family: 'Gibson Light', 'Helvetica', 'Arial', sans-serif;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -1169,7 +1170,7 @@ img {
   width: 960px;
   height: 40px;
   color: #ffffff;
-  padding-top: 10px;
+  padding-top: 3px;
   background: transparent;
 }
 .bar .header .fb {
@@ -1181,7 +1182,10 @@ img {
 }
 .bar .header .fb a {
   color: #ffffff;
-  font-weight: 400;
+  font-weight: 100;
+}
+.bar .header .fb img {
+  padding-top: 5px;
 }
 .bar .lists {
   float: left;
