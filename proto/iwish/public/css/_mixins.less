@@ -85,9 +85,10 @@ http://0to255.com/
 
 @bones-pink:        #f01d4f;
 @bones-blue:        #1990db;
+@indigo-text:		rgb(51, 48, 94);
 
-@link-color:        @bones-pink;
-@link-hover:        darken(@link-color, 9%);
+@link-color:        @indigo-text;
+@link-hover:        lighten(@link-color, 50%);
 
 /*
 Here's a great tutorial on how to
@@ -100,7 +101,7 @@ http://sachagreif.com/sass-color-variables/
 TYPOGRAPHY
 *********************/
 
-@sans-serif:         'Gibson Light', 'Helvetica', 'Arial', sans-serif; //"Helvetica Neue", Helvetica, Arial, sans-serif; 
+@sans-serif:         'Gibson', Helvetica, Arial, sans-serif; //"Helvetica Neue", Helvetica, Arial, sans-serif; 
 @serif:              "Georgia", Cambria, Times New Roman, Times, serif; 
 
 
@@ -239,9 +240,9 @@ BUTTONS
 *********************/
 
 .button, .button:visited {
-	border: 1px solid darken(@bones-pink, 13%);
-	border-top-color: darken(@bones-pink, 7%);
-	border-left-color: darken(@bones-pink, 7%);
+	border: 1px solid darken(@indigo-text, 13%);
+	border-top-color: darken(@indigo-text, 7%);
+	border-left-color: darken(@indigo-text, 7%);
 	padding: 4px 12px;
 	color: @white;
 	display: inline-block;
@@ -254,18 +255,18 @@ BUTTONS
 	line-height: 21px;
 	.transition();
 	.border-radius(4px);
-	.css-gradient(@bones-pink,darken(@bones-pink, 5%));
+	.css-gradient(@indigo-text,darken(@indigo-text, 5%));
 
 	&:hover, &:focus {
 		color: @white;
-	  border: 1px solid darken(@bones-pink, 13%);
-	  border-top-color: darken(@bones-pink, 20%);
-	 	border-left-color: darken(@bones-pink, 20%);
-		.css-gradient(darken(@bones-pink, 5%),darken(@bones-pink, 10%));
+	  border: 1px solid darken(@indigo-text, 13%);
+	  border-top-color: darken(@indigo-text, 20%);
+	 	border-left-color: darken(@indigo-text, 20%);
+		.css-gradient(darken(@indigo-text, 5%),darken(@indigo-text, 10%));
 	}
 	
 	&:active {
-		.css-gradient(darken(@bones-pink, 5%),@bones-pink);
+		.css-gradient(darken(@indigo-text, 5%),@indigo-text);
 	}	
 }
 

@@ -6,6 +6,15 @@ img {
 		user-select: none;
 }
 
+li {
+	list-style: none;
+}
+
+.wrap {
+	margin: 0 auto;
+	width: 1200px;
+	position: relative;
+}
 
 
 .basicBar {
@@ -24,7 +33,7 @@ img {
 	background: transparent url('/img/bar.png') top left no-repeat;
 	overflow: hidden;
 	z-index:999;
-
+	font-weight:100;
 	a {
 		color: #33305e;
 	}
@@ -56,7 +65,7 @@ img {
 			clear: none;
 			width: 60%;
 			height: 40px;
-			margin-right: 120px;
+			margin-right: 200px;
 
 			a {
 				color: @white;
@@ -97,6 +106,8 @@ img {
 		a {
 			position:absolute;
 			top:100px; left: 0;
+			z-index: 9999;
+			background: @white;
 		}
 		
 	}
@@ -181,29 +192,37 @@ img {
 }
 
 .myItem {
-	width: 100px; height: 100px;
-	border: 2px solid #ccc;	
+	width: 200px; height: 200px;
+	//border: 2px solid #ccc;	
 	background: @white;
-	.border-radius(4px);
+	//.border-radius(4px);
 }
 
 .myLists {
-	width: 170px; height: 170px;
-	border: 2px solid #ccc;	
+	position: relative;
+	width: 220px; height: 250px;
+//	border: 2px solid #ccc;	
 	background: @white;
-	.border-radius(4px);
+	//.border-radius(4px);
+	background: transparent url('/img/listbg.png') top left no-repeat;
+
+	img.flex {
+		position: absolute;
+		left: 20px; top: 20px;
+		width: 140px!important;
+	}
+
+	a {
+		position: absolute;
+		bottom: 0; left: 0;
+	}
 }
 
-.notificationItem {
-	width: 50px; height: 50px;
-	border: 1px solid #ccc;	
-	background: @white;
-	.border-radius(4px);
-}
 
 img.flex {
 	margin: 0 auto;
-	width: 100%; height: 100%;
+	width: auto%; height: auto;
+	max-height: 170px;
 
 }
 
@@ -257,4 +276,58 @@ img.flex {
 		width: 100px;
 		float: right;
 	}
+}
+
+.productOverlay {
+	position: absolute;
+	width: 300px; height: 350px!important;
+	margin: 0 0 0 -250px!important;
+	.boxShadow(0,0,0px,0,#444);
+	background: transparent url('/img/overlay_sale.png') top left no-repeat;
+	border: 0; box-shadow: 0;
+	img {
+		width: 50px; height: auto;
+		position: absolute; top: 40px; right: 60px;
+	}
+
+	p, h3 {
+		position: absolute;
+		top: 34px;
+		left: 45px;
+		width: 70%;
+	}
+
+	h3 {
+		top: 15px;
+	}
+
+	a {
+		float: right;
+	}
+}
+
+.notificationArea {
+	position: absolute;
+	left: 830px; top: 700px;
+	height: 700px;
+
+	.notificationItem {
+		position: relative;
+		width: 100px; height: auto;
+		float: left; clear: both;
+		margin: 0; padding: 0;
+	}
+
+	img.flex {
+		max-height: 50px;
+	}
+}
+
+
+.notificationObj {
+	position: absolute;
+	width: 50px; height: 50px;
+	border: 1px solid #ccc;	
+	background: @white;
+	.border-radius(4px);
 }

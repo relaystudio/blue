@@ -1,25 +1,38 @@
 extends layout
 
 block content
-	-for(var i=0;i<8;i++)
-		- var row = Math.floor(i/3) * 210 + 493;
-		- var col = (i%3) * 210 + 130;
-		- var position = 'position: absolute; top: ' + row + 'px; left: ' + col + 'px';
-		.myLists(style=position)
-			- var imgpath = '/img/items/' + i + '.jpg'
-			img.flex(src=imgpath)
-			<a href="/heather/list" style="clear: both">My List Name</a>
-	-for(var i=0;i<4;i++)
-		- var row = Math.floor(i/5) * 70 + 850;
-		- var col = (i%5) * 70 + 850;
+	-for(var i=0;i<18;i++)
+		- var row = Math.floor(i/3) * 200 + 483;
+		- var col = (i%3) * 200 + 130;
 		- var position = 'position: absolute; top: ' + row + 'px; left: ' + col + 'px';
 		- var imgpath = '/img/items/' + i + '.jpg'
-		.dragItem.notificationItem(style=position) 
+		.dragItem.myItem(style=position) 
 			img.flex(src=imgpath)
-		.notificationItem(style=position) 
+		.myItem(style=position) 
 			img.flex(src=imgpath)
 
-	img(src="/img/lists.png")
+
+	.notificationArea
+		-for(var i=1;i<7;i++)
+			-if(i==3) 
+				-var imgSrc = '/img/notItem_03.png'
+				.notificationItem
+					a(href="/proto/3")
+						img(src=imgSrc)
+					-for(var j=1;j<5;j++)
+						- var position = 'top: 63px; left: ' + (18 + 56*j) + 'px';
+						- var imgpath = '/img/items/' + j + '.jpg'
+						.dragItem.notificationObj(style=position) 
+							img.flex(src=imgpath)
+						.notificationObj(style=position) 
+							img.flex(src=imgpath)
+
+			-else
+				-var imgSrc = '/img/notItem_0' + i + '.png'
+				.notificationItem
+					img(src=imgSrc)
+
+	img(src="/img/heatherMomList.png")
 
 
 block bar
@@ -27,16 +40,19 @@ block bar
 		.header
 			.fb
 				img(src='/img/reisman_heather.jpg', style="height: 25px; margin-right: 20px")
-				| Hi <a href="/heather">Heather</a>, drag an item to save it!
+				| Hi <a href="/proto/5">Mary</a>, drag an item to save it!
 		.content
 			.dropSpot.scroll
 				.lists.newList
 					img(src='/img/newlist.png')
+					a(href='#') Make a new list
 				.lists
-					a(href='/proto/3') Mother's day
+					a(href='/proto/5') Mother's day
+					<div class="dragItem myItem ui-draggable inList" style="-webkit-transform: rotate(21.784110142616555deg) scale(0.7, 0.7);"> <img src="/img/items/10.jpg" class="flex" draggable="false"><a href="#" title="item" class="ui-icon ui-icon-refresh"></a></div>
+					<div class="dragItem myItem ui-draggable inList" style="-webkit-transform: rotate(34.90489963092841deg) scale(0.7, 0.7);"> <img src="/img/items/11.jpg" class="flex" draggable="false"><a href="#" title="item" class="ui-icon ui-icon-refresh"></a></div>
 				-var listNames = ['John\'s Bday', 'Running gear', 'New den', 'Webdev stuff', 'XKCD only', 'Toronto', 'Other stuff','iPhone','Cooking books']
 				-for(var i=0;i<3;i++)
 					.lists
-						a(href='/heather/list')= listNames[i]
+						a(href='/proto/5')= listNames[i]
 			.cart
 				.lists

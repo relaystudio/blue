@@ -6,13 +6,13 @@ $(document).ready( function() {
     $('input').inputfit();
 	dragging = false;
 
-	$('.lists')
+	var intervalID = setInterval(addNotification, 10000);
 
 	$(window).scroll( function(e) {
 		if(dragging) e.preventDefault();
 		else return true;
 	})
-
+	overlayTemplate();
 	// Setup hover behaviour
 	$('.bar').hoverIntent( function(){ // on hover
 		visibleBar = true
@@ -65,9 +65,10 @@ function init() {
 	$('.dragItem').draggable({
 		start: function(event,ui) {
 			barSlideUp();
-			//listSlideUp();
-			
 			dragging = true;
+			// $(this).transition({
+   //    		scale: [.5, .5]
+   //    	})
 		},
 		stop: function(event,ui) {
 			dragging = false;
@@ -125,6 +126,12 @@ function init() {
  var $gallery = $( ".gallery" );
       //$lists = $( ".lists" );
 
+
+
+
+}
+
+
 var recycle_icon = "<a href='#' title='item' class='ui-icon ui-icon-refresh'></a>";
 function deleteImage( $item, $lists ) {
   $item.animate({ opacity:.25},500,function() {
@@ -142,16 +149,12 @@ function deleteImage( $item, $lists ) {
       	.transition({
       		rotate: ( Math.random(0,1) * 35 ) + 'deg'
       		, scale: [.7, .7]
+      		, leftMargin : -($(this).css('width'))
+      		, topMargin : -($(this).css('height'))
       	})
     });
   });
 }
-
-
-}
-
-
-
 //////////
 //////////
 //////////
@@ -286,10 +289,54 @@ function addNewList() {
 	var listTemplate = '<div class="lists"><a href="/proto/2">' + listName + '</a></div>';
 	$('.makeNewList').fadeOut(400);
 	$('.newList').after(listTemplate);
+	$(".scroll").smoothDivScroll("recalculateScrollableArea");
+	$('.lists:not(.ui-droppable)').droppable({
+	      activeClass: "ui-state-hover",
+	      hoverClass: "ui-state-active",
+	      drop: function( event, ui ) {
+  			var target = this;	
+	      	dragging = false;
+		  	$(this).clone().next('div').animate({opacity:.25},1000);
+		  	deleteImage( ui.draggable, target );
+	      	barSlideUp();
+	      }
+	    });
 }
 
-function overlayTemplate(item) {
-	var $item = $(item);
-	
-	
+function overlayTemplate() {
+	$('.myItem, .dragItem').hoverIntent( function(){ // on hover
+		var target = this;
+		$('.productOverlay > img').attr('src',$(this).find('img').attr('src'));
+		$('.productOverlay').css({
+			top: $(target).css('top'),
+			left: $(target).css('left')
+		}).fadeIn(300);
+	}, function() { // hover off
+		$('.productOverlay').fadeOut(300);
+	});
+
+}
+
+function addNotification() {
+	var random = Math.floor( Math.random(0,1) * 6 ) + 1;
+	var template;
+	if(dragging) return;
+	if(random == 3) {
+		 template = '<div class="notificationItem"><a href="/proto/3"><img src="/img/notItem_0' + random + '.png" /></a><div style="top: 63px; left: 74px" class="dragItem notificationObj"> <img src="/img/items/1.jpg" class="flex"></div><div style="top: 63px; left: 74px" class="notificationObj"> <img src="/img/items/1.jpg" class="flex"></div><div style="top: 63px; left: 130px" class="dragItem notificationObj"> <img src="/img/items/2.jpg" class="flex"></div><div style="top: 63px; left: 130px" class="notificationObj"> <img src="/img/items/2.jpg" class="flex"></div><div style="top: 63px; left: 186px" class="dragItem notificationObj"> <img src="/img/items/3.jpg" class="flex"></div><div style="top: 63px; left: 186px" class="notificationObj"> <img src="/img/items/3.jpg" class="flex"></div><div style="top: 63px; left: 242px" class="dragItem notificationObj"> <img src="/img/items/4.jpg" class="flex"></div><div style="top: 63px; left: 242px" class="notificationObj"> <img src="/img/items/4.jpg" class="flex"></div></div>';
+		 $('.notificationObj').find('.dragItem').draggable({
+			start: function(event,ui) {
+				barSlideUp();
+				dragging = true;
+			},
+			stop: function(event,ui) {
+				dragging = false;
+			},
+			containment: "document",
+			revert: 'invalid',
+		    helper: "clone",
+	      	cursor: "move"
+		});
+	} else { template = '<div class="notificationItem"><img src="/img/notItem_0' + random + '.png" /></div>'; }
+	$(template).hide().prependTo('.notificationArea').fadeIn(400);
+	$('.notificationItem:last').slideUp(400).remove();
 }

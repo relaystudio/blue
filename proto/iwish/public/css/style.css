@@ -635,9 +635,9 @@ BUTTONS
 *********************/
 .button,
 .button:visited {
-  border: 1px solid #be0d37;
-  border-top-color: #db0f3f;
-  border-left-color: #db0f3f;
+  border: 1px solid #1b1a32;
+  border-top-color: #262446;
+  border-left-color: #262446;
   padding: 4px 12px;
   color: #ffffff;
   display: inline-block;
@@ -661,36 +661,36 @@ BUTTONS
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
-  background-color: #e40f42;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#f01d4f), to(#e40f42));
-  background-image: -webkit-linear-gradient(top, #f01d4f, #e40f42);
-  background-image: -moz-linear-gradient(top, #f01d4f, #e40f42);
-  background-image: -o-linear-gradient(top, #f01d4f, #e40f42);
-  background-image: linear-gradient(to bottom, #f01d4f, #e40f42);
+  background-color: #2a274d;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#33305e), to(#2a274d));
+  background-image: -webkit-linear-gradient(top, #33305e, #2a274d);
+  background-image: -moz-linear-gradient(top, #33305e, #2a274d);
+  background-image: -o-linear-gradient(top, #33305e, #2a274d);
+  background-image: linear-gradient(to bottom, #33305e, #2a274d);
 }
 .button:hover,
 .button:visited:hover,
 .button:focus,
 .button:visited:focus {
   color: #ffffff;
-  border: 1px solid #be0d37;
-  border-top-color: #9d0a2d;
-  border-left-color: #9d0a2d;
-  background-color: #cc0e3b;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#e40f42), to(#cc0e3b));
-  background-image: -webkit-linear-gradient(top, #e40f42, #cc0e3b);
-  background-image: -moz-linear-gradient(top, #e40f42, #cc0e3b);
-  background-image: -o-linear-gradient(top, #e40f42, #cc0e3b);
-  background-image: linear-gradient(to bottom, #e40f42, #cc0e3b);
+  border: 1px solid #1b1a32;
+  border-top-color: #0e0e1a;
+  border-left-color: #0e0e1a;
+  background-color: #211f3c;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#2a274d), to(#211f3c));
+  background-image: -webkit-linear-gradient(top, #2a274d, #211f3c);
+  background-image: -moz-linear-gradient(top, #2a274d, #211f3c);
+  background-image: -o-linear-gradient(top, #2a274d, #211f3c);
+  background-image: linear-gradient(to bottom, #2a274d, #211f3c);
 }
 .button:active,
 .button:visited:active {
-  background-color: #f01d4f;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#e40f42), to(#f01d4f));
-  background-image: -webkit-linear-gradient(top, #e40f42, #f01d4f);
-  background-image: -moz-linear-gradient(top, #e40f42, #f01d4f);
-  background-image: -o-linear-gradient(top, #e40f42, #f01d4f);
-  background-image: linear-gradient(to bottom, #e40f42, #f01d4f);
+  background-color: #33305e;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#2a274d), to(#33305e));
+  background-image: -webkit-linear-gradient(top, #2a274d, #33305e);
+  background-image: -moz-linear-gradient(top, #2a274d, #33305e);
+  background-image: -o-linear-gradient(top, #2a274d, #33305e);
+  background-image: linear-gradient(to bottom, #2a274d, #33305e);
 }
 .blue-button,
 .blue-button:visited {
@@ -780,13 +780,16 @@ the other stylesheets. Remember, keep it light: Speed is Important.
 /*********************
 	GENERAL STYLES
 *********************/
+@font-face {
+  font-family: "Gibson Light";
+  src: url('/type/Gibson-Light.otf') format('embedded-opentype');
+}
 body {
-  font-family: "Georgia", Cambria, Times New Roman, Times, serif;
+  font-family: 'Gibson', Helvetica, Arial, sans-serif;
   font-size: 100%;
   line-height: 1.5;
   color: #565656;
   width: 100%;
-  background: transparent url('/img/repeat.png') top left;
 }
 /*********************
  LAYOUT & GRID STYLES
@@ -800,7 +803,7 @@ body {
 *********************/
 a,
 a:visited {
-  color: #f01d4f;
+  color: #33305e;
   /* on hover */
 
   /* on click */
@@ -812,7 +815,7 @@ a:hover,
 a:visited:hover,
 a:focus,
 a:visited:focus {
-  color: #d10e3c;
+  color: #b7b4d9;
 }
 a:link,
 a:visited:link {
@@ -837,7 +840,7 @@ h4,
 .h4,
 h5,
 .h5 {
-  font-family: 'Gibson Light', 'Helvetica', 'Arial', sans-serif;
+  font-family: 'Gibson', Helvetica, Arial, sans-serif;
   text-rendering: optimizelegibility;
   font-weight: 400;
   /*
@@ -1100,7 +1103,7 @@ h5,
   }
 }
 .post .tags a {
-  background: #f01d4f;
+  background: #33305e;
   color: #ffffff;
   text-decoration: none;
   padding: 0 15px 0 15px;
@@ -1134,13 +1137,21 @@ img {
   -o-user-select: none;
   user-select: none;
 }
+li {
+  list-style: none;
+}
+.wrap {
+  margin: 0 auto;
+  width: 1200px;
+  position: relative;
+}
 .basicBar {
   height: 40px;
   width: 100%;
   background: #eeeeee;
 }
 .bar {
-  font-family: 'Gibson Light', 'Helvetica', 'Arial', sans-serif;
+  font-family: 'Gibson', Helvetica, Arial, sans-serif;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -1149,6 +1160,7 @@ img {
   background: transparent url('/img/bar.png') top left no-repeat;
   overflow: hidden;
   z-index: 999;
+  font-weight: 100;
 }
 .bar a {
   color: #33305e;
@@ -1178,11 +1190,11 @@ img {
   clear: none;
   width: 60%;
   height: 40px;
-  margin-right: 120px;
+  margin-right: 200px;
 }
 .bar .header .fb a {
   color: #ffffff;
-  font-weight: 100;
+  font-weight: 1400;
 }
 .bar .header .fb img {
   padding-top: 5px;
@@ -1216,6 +1228,8 @@ img {
   position: absolute;
   top: 100px;
   left: 0;
+  z-index: 9999;
+  background: #ffffff;
 }
 .bar .content {
   margin: 5px;
@@ -1280,36 +1294,33 @@ img {
   margin: 10px 10px 0 1px;
 }
 .myItem {
-  width: 100px;
-  height: 100px;
-  border: 2px solid #ccc;
+  width: 200px;
+  height: 200px;
   background: #ffffff;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
 }
 .myLists {
-  width: 170px;
-  height: 170px;
-  border: 2px solid #ccc;
+  position: relative;
+  width: 220px;
+  height: 250px;
   background: #ffffff;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
+  background: transparent url('/img/listbg.png') top left no-repeat;
 }
-.notificationItem {
-  width: 50px;
-  height: 50px;
-  border: 1px solid #ccc;
-  background: #ffffff;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
+.myLists img.flex {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  width: 140px!important;
+}
+.myLists a {
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 img.flex {
   margin: 0 auto;
-  width: 100%;
-  height: 100%;
+  width: auto%;
+  height: auto;
+  max-height: 170px;
 }
 .overlay {
   position: fixed;
@@ -1374,6 +1385,66 @@ img.flex {
 .overlay button {
   width: 100px;
   float: right;
+}
+.productOverlay {
+  position: absolute;
+  width: 300px;
+  height: 350px!important;
+  margin: 0 0 0 -250px !important;
+  -webkit-box-shadow: 0 0 0px 0 #444444;
+  -moz-box-shadow: 0 0 0px 0 #444444;
+  box-shadow: 0 0 0px 0 #444444;
+  background: transparent url('/img/overlay_sale.png') top left no-repeat;
+  border: 0;
+  box-shadow: 0;
+}
+.productOverlay img {
+  width: 50px;
+  height: auto;
+  position: absolute;
+  top: 40px;
+  right: 60px;
+}
+.productOverlay p,
+.productOverlay h3 {
+  position: absolute;
+  top: 34px;
+  left: 45px;
+  width: 70%;
+}
+.productOverlay h3 {
+  top: 15px;
+}
+.productOverlay a {
+  float: right;
+}
+.notificationArea {
+  position: absolute;
+  left: 830px;
+  top: 700px;
+  height: 700px;
+}
+.notificationArea .notificationItem {
+  position: relative;
+  width: 100px;
+  height: auto;
+  float: left;
+  clear: both;
+  margin: 0;
+  padding: 0;
+}
+.notificationArea img.flex {
+  max-height: 50px;
+}
+.notificationObj {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ccc;
+  background: #ffffff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
 }
 /*
 LARGER MOBILE DEVICES
