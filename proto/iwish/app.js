@@ -35,6 +35,9 @@ app.get('/proto/:index', function(req, res) {
   res.render( req.params.index + '.jade', { title: 'Express' });
 });
 
+app.get('/proto2/:index', function(req, res) {
+  res.render( 'p2_' + req.params.index + '.jade', { title: 'Express' });
+});
 
 app.get('/heather', function(req, res) {
   res.render('lists', { title: 'Express' });

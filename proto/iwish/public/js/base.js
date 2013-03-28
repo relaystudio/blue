@@ -1,4 +1,8 @@
-var barHeight, visibleBar, visibleExtend, gridster, dragging,personAdded,dateAdded;
+var barHeight, visibleBar, visibleExtend, gridster, dragging,personAdded,dateAdded,flower={};
+
+flower.x=0;
+flower.y=0;
+flower.dir=0;
 
 $(document).ready( function() {
 	visibleExtend = true;
@@ -7,6 +11,7 @@ $(document).ready( function() {
 	dragging = false;
 
 	var intervalID = setInterval(addNotification, 10000);
+	var intervalID = setInterval(animateFlowers, 100);
 
 	$(window).scroll( function(e) {
 		if(dragging) e.preventDefault();
@@ -50,12 +55,14 @@ function init() {
 		}
 	});
 
+	initFeed();
+
 	initTicker();
 
 	$('img').attr('draggable', false);
 
 	$('.scroll').smoothDivScroll({
-			mousewheelScrolling: "allDirections",
+			mousewheelScrolling: "horizontal",
 			manualContinuousScrolling: false,
 			hotSpotScrollingStep: 1
 			
@@ -339,4 +346,54 @@ function addNotification() {
 	} else { template = '<div class="notificationItem"><img src="/img/notItem_0' + random + '.png" /></div>'; }
 	$(template).hide().prependTo('.notificationArea').fadeIn(400);
 	$('.notificationItem:last').slideUp(400).remove();
+}
+
+function initFeed() {
+	var template;
+	for( var i=9;i>=0;i--) {
+		template = _.template($('#template' + i ).text(), 'null' )
+		$('.scrollArea').prepend(template);
+	}
+}
+
+function addPosting() {
+	var random = Math.floor( Math.random(0,1) * 6 ) + 1;
+	var template;
+	if(dragging) return;
+	/* if(random == 3) {
+		 template = '';
+		 $('.notificationObj').find('.dragItem').draggable({
+			start: function(event,ui) {
+				barSlideUp();
+				dragging = true;
+			},
+			stop: function(event,ui) {
+				dragging = false;
+			},
+			containment: "document",
+			revert: 'invalid',
+		    helper: "clone",
+	      	cursor: "move"
+		});
+	} else { */
+	//	template = '<div class="notificationItem"><img src="/img/notItem_0' + random + '.png" /></div>'; 
+		template = _.template($('#template' + random ).html() )
+	//}
+	//$(template).hide().prependTo('.scrollArea').fadeIn(400);
+	//$('.notificationItem:last').slideUp(400).remove();
+}
+
+function animateFlowers() {
+	var delta = 1;
+	if(flower.x > 100 || flower.y > 700) flower.dir = 0; // backwards
+	else if (flower.x < 0 || flower.y < 0) flower.dir = 1; // forwards
+	else flower.dir = flower.dir;
+
+	if(flower.dir == 1) { flower.x += delta; } //flower.y += delta }
+	else if(flower.dir == 0) { flower.x -= delta; }//flower.y -= delta }
+	//console.log(flower)
+	$('.animated').css({
+		top: flower.y
+		, left: flower.x
+	});
 }

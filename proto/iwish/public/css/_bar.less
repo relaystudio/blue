@@ -10,10 +10,62 @@ li {
 	list-style: none;
 }
 
+.scrollArea {
+	position: absolute;
+	left: 0px; top: 280px;
+	height: auto; width: 100%;
+
+	.feedItem {
+		position: relative;
+		width: 100%; height: auto;
+		float: left; clear: both;
+		margin: 0; padding: 0;	
+		overflow: hidden;
+		height: 315px!important;
+
+		.animate {
+			position: absolute;
+			top: 0; left: 0;
+			z-index: 0;
+
+		}
+		.animated {
+				z-index: 0;
+				position: absolute;
+			}
+	}
+
+	.scroll {
+		position: absolute;
+		top: 113px; left: 128px;
+		width: 940px; height: 200px;
+
+
+
+		.scrollableArea {
+			background: transparent url('/img/new/paper.jpg') top left repeat-x;
+		}
+
+		.lists {
+			width: auto; min-width: 145px; height: 145px;
+			margin: 17px;
+			float: left; clear: none;
+
+			&:first-child {
+				margin-left: 35px;
+			}
+		}
+	}
+
+	img.flex {
+		max-height: 50px;
+	}
+}
+
 .wrap {
-	margin: 0 auto;
+	margin: 0 auto;;
 	width: 1200px;
-	position: relative;
+	
 }
 
 
