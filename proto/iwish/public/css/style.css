@@ -1186,6 +1186,7 @@ li {
 }
 .proto2 .content {
   background: transparent url('/img/new/bg.png') top left no-repeat;
+  height: 100%;
 }
 .proto2 .dropSpot {
   width: 490px!important;
@@ -1386,7 +1387,7 @@ li {
   -webkit-box-shadow: 4 4 4px 0 #444444;
   -moz-box-shadow: 4 4 4px 0 #444444;
   box-shadow: 4 4 4px 0 #444444;
-  z-index: 99;
+  z-index: 99999999999999;
 }
 .dragItem .overDrop {
   -webkit-box-shadow: 4 4 4px 0 #ff0000;

@@ -7,6 +7,13 @@ var express = require('express')
   , http = require('http')
   , less = require('less-middleware')
   , path = require('path');
+//   , appjs = require('appjs');
+
+// var window = appjs.createWindow({
+//   width: 1280,
+//   height: 960,
+//   alpha: false,
+// });
 
 var app = express();
 
@@ -50,3 +57,28 @@ app.get('/heather/:list', function(req, res) {
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
+
+// window.on('create', function(){
+//   console.log("Window Created");
+//   // window.frame controls the desktop window
+//   window.frame.show().center();
+// });
+
+// window.on('ready', function(){
+//   console.log("Window Ready");
+//   // directly interact with the DOM
+//   window.process = process;
+//   window.module = module;
+
+//   window.addEventListener('keydown', function(e){
+//     // show chrome devtools on f12 or commmand+option+j
+//     if (e.keyIdentifier === 'F12' || e.keyCode === 74 && e.metaKey && e.altKey) {
+//       window.frame.openDevTools();
+//     }
+//   });
+// });
+
+// // cleanup code when window is closed
+// window.on('close', function(){
+//   console.log("Window Closed");
+// });
