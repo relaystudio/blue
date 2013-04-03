@@ -5,31 +5,23 @@ block content
 	img(src="/img/new/p_-03.png")
 
 block bar
-	.bar
-		.header
-			.fb
-				img(src='/img/reisman_heather.jpg', style="height: 25px; margin-right: 20px")
-				| Hi <a href="/proto/2">Mary</a>, drag an item to save it!
+	.bar.proto2
 		.content
 			.dropSpot.scroll
-				.lists.newList
-					img(src='/img/newlist.png')
-					a(href='#') Make a new list
 				-var listNames = ['John\'s Bday', 'Running gear', 'New den', 'Webdev stuff', 'XKCD only', 'Toronto', 'Other stuff','iPhone','Cooking books']
 				-for(var i=0;i<3;i++)
 					.items
 						a(href='/proto/2')= listNames[i]
-			.cart
-				.lists
 
 block template
 	| <script id='template1' style='text/html'>
 	.feedItem
 		img(src='/img/new/1.png')
-		.scroll
-			-for(var i=0;i<13;i++)
-				.lists
-					a(href='/proto/2')= listNames[i]
+		.scroll.feedList
+			-for(var i=0;i<5;i++)
+				- var imgpath = '/img/items/' + i + '.jpg'
+				.dragItem.myItem
+					img.flex(src=imgpath)
 	| </script>
 
 	| <script id='template2' style='text/html'>
@@ -39,52 +31,54 @@ block template
 	| </script>
 
 	| <script id='template3' style='text/html'>
-	.feedItem
+	.feedItem(style="height: 167px")
 		img(src='/img/new/3.png')
 	| </script>
 
 	| <script id='template4' style='text/html'>
 	.feedItem
 		img(src='/img/new/4.png')
-		.scroll
-			-for(var i=0;i<13;i++)
-				.lists
-					a(href='/proto/2')= listNames[i]
+		.scroll.feedList
+			-for(var i=0;i<5;i++)
+				- var imgpath = '/img/items/' + i + '.jpg'
+				.dragItem.myItem
+					img.flex(src=imgpath)
 	| </script>
 
 	| <script id='template5' style='text/html'>
 	.feedItem
 		img(src='/img/new/5.png')
-		.scroll(style="top: 175px")
-			-for(var i=0;i<13;i++)
-				.lists
-					a(href='/proto/2')= listNames[i]
+		.scroll(style="top: 175px").feedList
+			-for(var i=0;i<5;i++)
+				- var imgpath = '/img/items/' + i + '.jpg'
+				.dragItem.myItem
+					img.flex(src=imgpath)
 	| </script>
 
 	| <script id='template6' style='text/html'>
 	.feedItem
 		img(src='/img/new/6.png')
-		.scroll
-			-for(var i=0;i<13;i++)
-				.lists
-					a(href='/proto/2')= listNames[i]
+		.scroll.feedList
+			-for(var i=0;i<5;i++)
+				- var imgpath = '/img/items/' + i + '.jpg'
+				.dragItem.myItem
+					img.flex(src=imgpath)
 	| </script>
 
 	| <script id='template7' style='text/html'>
-	.feedItem
+	.feedItem.listOpen
 		img(src='/img/new/7.png')
+		.listDrawer
+			img(src='/img/new/flag.png', style='position:absolute; left: 0; bottom: 0')
+
 	| </script>
 
 	| <script id='template8' style='text/html'>
 	.feedItem
-		img(src='/img/new/8.png')
-	| </script>
-
-	| <script id='template9' style='text/html'>
-	.feedItem
 		img(src='/img/new/9.png')
-		.scroll
-			-for(var i=0;i<13;i++)
-				.lists
-					a(href='/proto/2')= listNames[i]
+		.scroll.feedList
+			-for(var i=0;i<5;i++)
+				- var imgpath = '/img/items/' + i + '.jpg'
+				.dragItem.myItem
+					img.flex(src=imgpath)
 	| </script>

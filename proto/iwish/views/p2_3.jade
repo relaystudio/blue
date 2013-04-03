@@ -1,0 +1,18 @@
+extends layout
+
+block content
+	.scrollArea
+	img(src="/img/new/friendspage.jpg")
+
+
+
+block bar
+	.bar.proto2
+		.content
+			.dropSpot.scroll
+				-var listNames = ['John\'s Bday', 'Running gear', 'New den', 'Webdev stuff', 'XKCD only', 'Toronto', 'Other stuff','iPhone','Cooking books']
+				-for(var i=0;i<3;i++)
+					.items
+						a(href='/proto/2')= listNames[i]
+
+block template

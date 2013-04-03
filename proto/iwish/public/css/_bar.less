@@ -10,6 +10,84 @@ li {
 	list-style: none;
 }
 
+.listDrawer {
+	//display: none;
+	position: absolute;
+	top: 335px;left:130px;
+	width: 940px;
+	height: 498px;;
+	background: @white url('/img/new/listdrawer.jpg') top left repeat-x;
+}
+
+.listOpen {
+	height: 440px;
+}
+
+.inner {
+	height: 0;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	overflow: hidden;
+	background: white;
+	border: 1px solid #eee;
+}
+
+.sharedList {
+	width:940px;
+	height:477px;
+	position: absolute;
+	top: 406px; left: 129px;
+
+	.scrollableArea {
+		background: transparent url('/img/new/listdrawer.jpg') top left repeat-x;
+		padding: 32px;
+	}
+
+	.myItem {
+			width: auto; min-width: 190px; height: 190px;
+			margin: 15px;
+			float: left; clear: none;
+			position: relative;
+			&:first-child {
+			//	margin-left: 40px;
+			}
+		}
+}
+
+.proto2 {
+	background: #eeeeee!important;
+	.content {
+	background: transparent url('/img/new/bg.png') top left no-repeat;
+
+	}
+	.dropSpot {
+		width: 490px!important;
+	}
+
+}
+
+.feedList {
+	.scrollWrappers {
+		box-shadow: inset 0px 0px 10px rgba(0,0,0,0.9);
+	}
+	
+	img.flex {
+		max-height: 200px!important;
+	}	
+
+	.myItem {
+		width: auto; min-width: 190px; height: 190px;
+		margin: 15px;
+		float: left; clear: none;
+
+		&:first-child {
+		//	margin-left: 40px;
+		}
+	}
+}
+
 .scrollArea {
 	position: absolute;
 	left: 0px; top: 280px;
@@ -21,7 +99,7 @@ li {
 		float: left; clear: both;
 		margin: 0; padding: 0;	
 		overflow: hidden;
-		height: 315px!important;
+		height: 410px;
 
 		.animate {
 			position: absolute;
@@ -33,26 +111,33 @@ li {
 				z-index: 0;
 				position: absolute;
 			}
+		&.animate {
+			height: 315px!important
+		}
 	}
+
+
 
 	.scroll {
 		position: absolute;
-		top: 113px; left: 128px;
-		width: 940px; height: 200px;
+		top: 145px; left: 128px;
+		width: 940px; height: 227px;
+		z-index: 0;
 
 
 
 		.scrollableArea {
 			background: transparent url('/img/new/paper.jpg') top left repeat-x;
+			//z-index: 999;
 		}
 
 		.lists {
-			width: auto; min-width: 145px; height: 145px;
+			width: auto; min-width: 190px; height: 190px;
 			margin: 17px;
 			float: left; clear: none;
 
 			&:first-child {
-				margin-left: 35px;
+				//margin-left: 35px;
 			}
 		}
 	}
@@ -63,7 +148,7 @@ li {
 }
 
 .wrap {
-	margin: 0 auto;;
+	margin: 0;
 	width: 1200px;
 	
 }

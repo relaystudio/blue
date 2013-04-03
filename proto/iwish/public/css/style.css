@@ -1140,6 +1140,70 @@ img {
 li {
   list-style: none;
 }
+.listDrawer {
+  position: absolute;
+  top: 335px;
+  left: 130px;
+  width: 940px;
+  height: 498px;
+  background: #ffffff url('/img/new/listdrawer.jpg') top left repeat-x;
+}
+.listOpen {
+  height: 440px;
+}
+.inner {
+  height: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  background: white;
+  border: 1px solid #eee;
+}
+.sharedList {
+  width: 940px;
+  height: 477px;
+  position: absolute;
+  top: 406px;
+  left: 129px;
+}
+.sharedList .scrollableArea {
+  background: transparent url('/img/new/listdrawer.jpg') top left repeat-x;
+  padding: 32px;
+}
+.sharedList .myItem {
+  width: auto;
+  min-width: 190px;
+  height: 190px;
+  margin: 15px;
+  float: left;
+  clear: none;
+  position: relative;
+}
+.proto2 {
+  background: #eeeeee!important;
+}
+.proto2 .content {
+  background: transparent url('/img/new/bg.png') top left no-repeat;
+}
+.proto2 .dropSpot {
+  width: 490px!important;
+}
+.feedList .scrollWrappers {
+  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.9);
+}
+.feedList img.flex {
+  max-height: 200px!important;
+}
+.feedList .myItem {
+  width: auto;
+  min-width: 190px;
+  height: 190px;
+  margin: 15px;
+  float: left;
+  clear: none;
+}
 .scrollArea {
   position: absolute;
   left: 0px;
@@ -1156,7 +1220,7 @@ li {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  height: 315px!important;
+  height: 410px;
 }
 .scrollArea .feedItem .animate {
   position: absolute;
@@ -1168,32 +1232,33 @@ li {
   z-index: 0;
   position: absolute;
 }
+.scrollArea .feedItem.animate {
+  height: 315px !important;
+}
 .scrollArea .scroll {
   position: absolute;
-  top: 113px;
+  top: 145px;
   left: 128px;
   width: 940px;
-  height: 200px;
+  height: 227px;
+  z-index: 0;
 }
 .scrollArea .scroll .scrollableArea {
   background: transparent url('/img/new/paper.jpg') top left repeat-x;
 }
 .scrollArea .scroll .lists {
   width: auto;
-  min-width: 145px;
-  height: 145px;
+  min-width: 190px;
+  height: 190px;
   margin: 17px;
   float: left;
   clear: none;
-}
-.scrollArea .scroll .lists:first-child {
-  margin-left: 35px;
 }
 .scrollArea img.flex {
   max-height: 50px;
 }
 .wrap {
-  margin: 0 auto;
+  margin: 0;
   width: 1200px;
 }
 .basicBar {

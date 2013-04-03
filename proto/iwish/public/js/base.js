@@ -1,4 +1,4 @@
-var barHeight, visibleBar, visibleExtend, gridster, dragging,personAdded,dateAdded,flower={};
+var barHeight, visibleBar, visibleExtend, gridster, dragging,personAdded,dateAdded,flower={},listOpen=false;
 
 flower.x=0;
 flower.y=0;
@@ -58,6 +58,10 @@ function init() {
 	initFeed();
 
 	initTicker();
+
+	listDrawerInit();
+
+	itemPopup();
 
 	$('img').attr('draggable', false);
 
@@ -350,10 +354,12 @@ function addNotification() {
 
 function initFeed() {
 	var template;
-	for( var i=9;i>=0;i--) {
+	for( var i=8;i>=0;i--) {
 		template = _.template($('#template' + i ).text(), 'null' )
 		$('.scrollArea').prepend(template);
 	}
+	$('.listDrawer').hide().css({height :'0'});
+	$('.listOpen').height('440px')
 }
 
 function addPosting() {
@@ -396,4 +402,43 @@ function animateFlowers() {
 		top: flower.y
 		, left: flower.x
 	});
+}
+
+function listDrawerInit() {
+	$('.listOpen').on('click', function(e) {
+		if(!listOpen) {
+			$('.listOpen').animate({
+				height : '950px'
+			}, 500, function() {
+				listOpen = !listOpen
+			});
+			$('.listDrawer').show().animate({
+				height: '552px'
+				},500);
+		} else {
+			$('.listOpen').animate({
+				height : '440px'
+			}, 500, function() {
+				listOpen = !listOpen
+			});
+			$('.listDrawer').animate({
+				height: '0'
+				},500, function() {
+					$(this).hide();
+				});
+		}
+	})
+}
+
+function itemPopup() {
+	$('.myItem').hover( function() {
+		$(this).find('.inner').animate({
+			height:'100px'
+		})
+	}, function() {
+		$(this).find('.inner').animate({
+			height: '0px'
+		})
+	})
+
 }
