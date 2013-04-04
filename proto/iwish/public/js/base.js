@@ -433,7 +433,7 @@ function listDrawerInit() {
 function itemPopup() {
 	$('.myItem').hover( function() {
 		$(this).find('.inner').animate({
-			height:'100px'
+			height:'190px'
 		})
 	}, function() {
 		$(this).find('.inner').animate({

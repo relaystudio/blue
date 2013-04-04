@@ -1158,7 +1158,7 @@ li {
   left: 0;
   width: 100%;
   overflow: hidden;
-  background: white;
+  background: transparent;
   border: 1px solid #eee;
 }
 .sharedList {
