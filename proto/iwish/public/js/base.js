@@ -359,7 +359,7 @@ function initFeed() {
 		$('.scrollArea').prepend(template);
 	}
 	$('.listDrawer').hide().css({height :'0'});
-	$('.listOpen').height('440px')
+	$('.listOpen').height('475px')
 }
 
 function addPosting() {
@@ -408,7 +408,7 @@ function listDrawerInit() {
 	$('.listOpen').on('click', function(e) {
 		if(!listOpen) {
 			$('.listOpen').animate({
-				height : '950px'
+				height : '750px'
 			}, 500, function() {
 				listOpen = !listOpen
 			});
@@ -417,7 +417,7 @@ function listDrawerInit() {
 				},500);
 		} else {
 			$('.listOpen').animate({
-				height : '440px'
+				height : '475px'
 			}, 500, function() {
 				listOpen = !listOpen
 			});

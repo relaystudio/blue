@@ -18,16 +18,6 @@ block content
 	.feedItem.listOpen(style='position:relative')
 		img(src='/img/new/mylists.png')
 		.listDrawer(style='top:211px')
-			.scroll.sharedList(style="position: absolute;top: 0; left: 0;")
-				-for(var i=0;i<11;i++)
-					- var imgpath = '/img/items/' + i + '.jpg'
-					-if(i == 5)
-						.dragItem.myItem(style='clear:both;') 
-							img.flex(src=imgpath)
-					-else
-						.dragItem.myItem
-							img.flex(src=imgpath)
-			img(src='/img/new/flag.png', style='position:absolute; left: 0; bottom: 0')
 
 
 
@@ -37,7 +27,7 @@ block bar
 			.dropSpot.scroll
 				-var listNames = ['John\'s Bday', 'Running gear', 'New den', 'Webdev stuff', 'XKCD only', 'Toronto', 'Other stuff','iPhone','Cooking books']
 				-for(var i=0;i<3;i++)
-					.items
+					.lists
 						a(href='/proto/2')= listNames[i]
 
 block template
